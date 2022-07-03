@@ -1,0 +1,58 @@
+<body style="background-color:gray">
+
+  <SCRIPT LANGUAGE="JavaScript">
+    function testResults(form) {
+      var value = form.irldate.value;
+      var finDate;
+
+      var day = value.substring(8, 10);
+      var month = parseInt(value.substring(5, 7));
+      var year = parseInt(value.substring(0, 4));
+
+      var yeardiff = year - 2022
+
+      var monthdiff = month - 4
+
+      var rp_year = (monthdiff + yeardiff * 12) + 642
+
+      var lastNumOfDay = day.substring(1, 2)
+
+      var th_value = "th";
+
+      if (lastNumOfDay == 1) {
+				th_value = "st"
+      } else if (lastNumOfDay == 2) {
+				th_value = "nd"
+      } else if (lastNumOfDay == 3) {
+				th_value = "rd"
+      }
+		
+    	var finday = parseInt(day);
+
+      var finDate = finday + th_value + " of " + rp_year + " AI (After Impact)"
+
+      document.getElementById("findate").innerHTML = finDate;
+    }
+
+  </SCRIPT>
+
+  <div style="text-align: center; font-size: x-large; font-family: lora; padding: 1em;">Eurocraft Date Calculator
+    <br>
+    <br>
+    <form>
+      <input type="date" id="irldate" name="Enter IRL Date">
+      <input type="button" value="Submit" onClick="testResults(this.form)">
+
+    </form>
+
+
+    <br>
+    Eurocraft Date:
+
+    <div style="text-align: center; font-size: medium; font-family: lora; padding: 1em;">
+      <p id="findate">Submit an IRL Date</p>
+    </div>
+  </div>
+
+
+</body>
